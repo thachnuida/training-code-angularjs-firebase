@@ -1,0 +1,9 @@
+<div ng-show="auth.user">
+  <p>Hello, {{auth.user.displayName}}</p>
+  <img src="{{auth.user.thirdPartyUserData.picture.data.url}}"><br>
+  <button ng-click="auth.$logout()">Logout</button>
+</div>
+<div ng-hide="auth.user">
+  <p>Welcome, please log in.</p>
+  <button ng-click="auth.$login('facebook')">Login</button>
+</div>
