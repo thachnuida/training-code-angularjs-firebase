@@ -1,9 +1,15 @@
-<div ng-show="auth.user">
-  <p>Hello, {{auth.user.displayName}}</p>
-  <img src="{{auth.user.thirdPartyUserData.picture.data.url}}"><br>
-  <button ng-click="auth.$logout()">Logout</button>
+
+<div class="row header">
+  <div class=".col-md-8" ng-show="auth.user">
+    <p>Hello, {{auth.user.displayName}}</p><br>
+    <img  class="img-thumbnail" ng-src="{{auth.user.thirdPartyUserData.picture.data.url}}">
+    <button class=".col-md-4 buttonRight btn btn-primary btn-lg active" ng-click="auth.$logout()">Logout</button>
+  </div>
 </div>
-<div ng-hide="auth.user">
-  <p>Welcome, please log in.</p>
-  <button ng-click="auth.$login('facebook')">Login</button>
+
+<div class="row">
+  <div class=".col-md-8" ng-hide="auth.user">
+    <p>Welcome, please log in.</p>
+    <button class=".col-md-4 buttonRight btn btn-success btn-lg active" ng-click="auth.$login('facebook')">Login</button>
+  </div>
 </div>

@@ -1,0 +1,22 @@
+
+<div>
+  <h3>Welcome to {{roomInfo.roomName}}</h3>
+</div>
+<div>
+  <ul>
+    <li ng-repeat="detail in chatMessages" >
+      <img ng-src="{{detail.userimg}}" width="20">{{detail.postedby}}:{{detail.message}}
+      <div ng-show="detail.url">
+        <youtube model="detail.url"></youtube>
+      </div>
+        <span> {{detail.posteddate|date:'yyyy-MM-dd HH:mm:ss'}}</span>
+    </li>
+  </ul>  
+</div>
+
+<div>
+  <form ng-submit="sendMessage()" ng-show="auth.user">
+    <input type="text" placeholder="Enter message" ng-model="message">
+    <input type="submit" value="Send">
+  </form>
+</div>

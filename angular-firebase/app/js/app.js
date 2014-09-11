@@ -1,18 +1,18 @@
-
 'use strict';
 
-var chatApp = angular.module('chatApp',['ngRoute','chatControllers']);
+var chatApp = angular.module('chatApp',['ngRoute','chatControllers','chatDirectives']);
 
 chatApp.config(['$routeProvider',
   function($routeProvider){
     $routeProvider.
       when("/",{
-        templateUrl:'partials/auth.html',
-        controller:'AuthCtrl'
-      }).
-      when("/home",{
         templateUrl:'partials/home.html',
-        controller:'HomeCtrl'
+        controller:'HomeCtrl',
+        // resolve:{
+        //   "currentUser":["simpleLogin",function(simpleLogin){
+        //     return simpleLogin.$getCurrentUser();
+        //   }]
+        // }
       }).
       when('/chat/:roomid',{
         templateUrl:'partials/chat.html',
