@@ -18,11 +18,9 @@
   <script src="js/directives.js"></script>
 </head>
 <body>
-<div class="container" ng-include src="'partials/auth.html'"></div>
-
-<div class="container" ng-view>
-
-</div>
-
+  <div class="col-md-9 col-md-push-3 bodyContent">
+    <div ng-view></div>
+  </div>
+  <div class="bodyRight" ng-include src="'partials/auth.html'"></div>
 </body>
 </html>

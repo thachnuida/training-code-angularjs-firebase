@@ -1,15 +1,16 @@
 
-<div class="row header">
-  <div class=".col-md-8" ng-show="auth.user">
-    <p>Hello, {{auth.user.displayName}}</p><br>
-    <img  class="img-thumbnail" ng-src="{{auth.user.thirdPartyUserData.picture.data.url}}">
-    <button class=".col-md-4 buttonRight btn btn-primary btn-lg active" ng-click="auth.$logout()">Logout</button>
-  </div>
+<div class="welcome">
+  <h3 class="text-center">Your Profile</h3>
 </div>
+<div class="bodyAuth">
+  <div class="auth text-center" ng-show="auth.user">
+    <p>Hello, {{auth.user.displayName}}</p><br>
+    <img class="img-thumbnail" ng-src="{{auth.user.thirdPartyUserData.picture.data.url}}"><br>
+    <button class="buttonRight btn btn-primary btn-lg active" ng-click="auth.$logout()">Logout</button>
+  </div>
 
-<div class="row">
-  <div class=".col-md-8" ng-hide="auth.user">
+  <div class="auth text-center" ng-hide="auth.user">
     <p>Welcome, please log in.</p>
-    <button class=".col-md-4 buttonRight btn btn-success btn-lg active" ng-click="auth.$login('facebook')">Login</button>
+    <button class="buttonRight btn btn-primary btn-lg active" ng-click="auth.$login('facebook')">Login</button>
   </div>
 </div>

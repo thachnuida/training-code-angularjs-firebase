@@ -12,7 +12,7 @@ chatDirectives.directive('youtube',
       },
       replace:true,
       template: '<div>'+
-                  '<iframe style="overflow:hidden;"src="{{url}}" frameborder="0"></iframe>'+
+                  '<iframe style="overflow:hidden;width:350px;height:300px;"src="{{url}}" frameborder="0"></iframe>'+
                 '</div>',
       link: function(scope){
         scope.$watch('linkInfo', function () {
@@ -23,3 +23,16 @@ chatDirectives.directive('youtube',
       }
     }
 });
+
+chatDirectives.directive('scrollDown',['$document',function($document) {
+  return {
+    restrict: 'A',
+    replace: 'true',
+      link: function(scope, elem, attrs){
+        var raw = elem[0];
+        scope.$watch(function(){
+          raw.scrollTop=raw.scrollHeight;
+        })
+      }
+    };
+}]);

@@ -31,8 +31,8 @@ chatControllers.controller("HomeCtrl", ["$scope", "$rootScope", "simpleLogin","$
     };
 }]);
 
-chatControllers.controller("ChatCtrl",["$scope","$rootScope","$routeParams","$firebase","simpleLogin","$sce",
-  function($scope,$rootScope,$routeParams,$firebase,simpleLogin,$sce){
+chatControllers.controller("ChatCtrl",["$scope","$rootScope","$routeParams","$firebase","simpleLogin",
+  function($scope,$rootScope,$routeParams,$firebase,simpleLogin){
     var chatRoom = new Firebase("https://glaring-heat-5049.firebaseio.com/chatrooms/"+$routeParams.roomid);
     if (!$rootScope.auth) {
       $rootScope.auth = simpleLogin;
@@ -46,16 +46,13 @@ chatControllers.controller("ChatCtrl",["$scope","$rootScope","$routeParams","$fi
     $scope.sendMessage=function(){
       $scope.url = null;
       if($scope.message.indexOf("https://www.youtube.com/watch?v=")==-1){
-        console.log("sai");
       }else{
-        console.log("dunssg");
         var number = $scope.message.indexOf("https://www.youtube.com/watch?v=");
         var start=number+32, end= number+43;
 
         $scope.message.substring(start,end);
         $scope.url=$scope.message.substring(start,end);
       };
-
       if ($scope.message.length == 0) return;
       msgSync.$push({
         postedby:$rootScope.auth.user.displayName,

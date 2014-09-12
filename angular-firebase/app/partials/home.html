@@ -1,20 +1,24 @@
 
-
-<h3>
-  CHAT ROOMS:<a class="btn btn-primary btn-sm" href="" ng-hide="isNew==true" roomName="" ng-click="isNew=true">New Room</a>
-  <input class="form-control" type="text" ng-show="isNew==true" ng-model="roomName" placeholder="Room name"/>
-  <a class="btn btn-success" href="" ng-disabled="!roomName" ng-show="isNew==true" ng-click="newRoom()">Create Room</a>
-</h3>
-  
-<div class="content">
-  <h2>LIST ROOMS:</h2>
-  <ul>
-    <li ng-repeat="item in rooms">
-      <span class="roomName">{{item.roomName}}</span>: created by {{item.createdby}}
-      <br> 
-      <a class="btn btn-info" href="" ng-click="joinChat($index)"> joinChat</a>
-      <a class="btn btn-info" href="" ng-show="auth.user.displayName==item.createdby" ng-click="deleteRoom($index)">Delete</a>
-    </li>
-  </ul>
+<div class="welcome bg-primary">
+  <h3 class="text-center">LIST ROOMS</h3>
 </div>
-
+<div class="bodyRoom2">
+  <div class="chatRoom">
+    CHAT ROOMS:<a class="btn btn-primary btn-sm" href="" ng-hide="isNew==true" roomName="" ng-click="isNew=true">New Room</a>
+    <input class="form-control" type="text" ng-show="isNew==true" ng-model="roomName" placeholder="Room name"/>
+    <a class="btn btn-success" href="" ng-disabled="!roomName" ng-show="isNew==true" ng-click="newRoom()">Create Room</a>
+    <a class="btn btn-success" href="" ng-show="isNew==true" ng-click="isNew=false">Cancel</a>
+  </div>
+    
+  <div class="content">
+    <h2>LIST ROOMS:</h2>
+    <ul>
+      <li ng-repeat="item in rooms">
+        <span class="roomName">{{item.roomName}}</span>: created by {{item.createdby}}
+        <br> 
+        <a class="btn btn-info" href="" ng-click="joinChat($index)"> joinChat</a>
+        <a class="btn btn-info" href="" ng-show="auth.user.displayName==item.createdby" ng-click="deleteRoom($index)">Delete</a>
+      </li>
+    </ul>
+  </div>
+</div>
