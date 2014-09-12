@@ -9,11 +9,14 @@
     <a class="btn btn-success" href="" ng-disabled="!roomName" ng-show="isNew==true" ng-click="newRoom()">Create Room</a>
     <a class="btn btn-success" href="" ng-show="isNew==true" ng-click="isNew=false">Cancel</a>
   </div>
-    
+
   <div class="content">
     <h2>LIST ROOMS:</h2>
+    <div>
+      <input class="form-control" ng-model="query" placeholder="Search room">   
+    </div>  
     <ul>
-      <li ng-repeat="item in rooms">
+      <li ng-repeat="item in rooms|filter:query">
         <span class="roomName">{{item.roomName}}</span>: created by {{item.createdby}}
         <br> 
         <a class="btn btn-info" href="" ng-click="joinChat($index)"> joinChat</a>
